@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        .container {
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+        }
+        h1 {
+            color: #333;
+        }
+        .btn-twitter {
+            background-color: #1da1f2;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn-twitter:hover {
+            background-color: #0b84d0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Twitter Login</h1>
+        <p>Click the button below to log in with Twitter:</p>
+        <button class="btn-twitter" onclick="redirectToTwitter()">Login with Twitter</button>
+    </div>
+
+    <script>
+        // JavaScript function to redirect to Twitter login
+        function redirectToTwitter() {
+            window.location.href = '/auth/twitter';
+        }
+    </script>
+</body>
+</html>
