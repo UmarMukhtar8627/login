@@ -5,10 +5,13 @@ const TwitterStrategy = require('passport-twitter').Strategy;
 const app = express();
 const port = process.env.PORT || 5500;
 
+// Serve static files from a directory (e.g., 'public')
+app.use(express.static('public'));
+
 // Configure Passport
 passport.use(new TwitterStrategy({
-  consumerKey: '8rlnjxMEEcUuLmkcK4m50DkRJ',
-  consumerSecret: 'zZjwi8LBrq27UfOZsV9xjgVBT9hFxVAuA3aoanonrJUSb',
+  consumerKey: 'UXU3c0tVTUZ0NFNLMjBiV2t5NWM6MTpjaQ',
+  consumerSecret: '0ng_i2zT3kmCNBGAj_t9GQqYhC13j1DtCnGuZzUTLGCenooDjv',
   callbackURL: 'http://localhost:' + port + '/auth/twitter/callback'
 }, (token, tokenSecret, profile, done) => {
   // Here, you can handle user creation or login based on Twitter profile data.
@@ -20,14 +23,8 @@ passport.use(new TwitterStrategy({
 app.use(passport.initialize());
 
 // Define routes
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-});
-
-// Twitter login route
 app.get('/auth/twitter', passport.authenticate('twitter'));
 
-// Twitter callback route
 app.get('/auth/twitter/callback', 
   passport.authenticate('twitter', { failureRedirect: '/' }),
   (req, res) => {
