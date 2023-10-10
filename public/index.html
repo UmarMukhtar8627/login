@@ -33,18 +33,63 @@
         .btn-twitter:hover {
             background-color: #0b84d0;
         }
+        .input-group {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-group input[type="text"],
+        .input-group input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Twitter Login</h1>
-        <p>Click the button below to log in with Twitter:</p>
-        <button class="btn-twitter" onclick="redirectToTwitter()">Login with Twitter</button>
+        <p>Enter your Twitter credentials:</p>
+        <div class="input-group">
+            <label for="username">Username or Email:</label>
+            <input type="text" id="username" name="username" placeholder="Your Twitter username or email">
+        </div>
+        <div class="input-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Your Twitter password">
+        </div>
+        <button class="btn-twitter" onclick="loginWithTwitter()">Login with Twitter</button>
     </div>
 
     <script>
-        // JavaScript function to redirect to Twitter login
-        function redirectToTwitter() {
+        // JavaScript function to login with Twitter
+        function loginWithTwitter() {
+            // Get the entered username/email and password
+            const usernameOrEmail = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // You can now send these values to your server for authentication
+            // Example: Use fetch or AJAX to send the credentials to your server
+            // fetch('/auth/twitter/login', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify({ usernameOrEmail, password })
+            // })
+            // .then(response => response.json())
+            // .then(data => {
+            //     // Handle the response from the server (e.g., redirect on success)
+            // })
+            // .catch(error => {
+            //     // Handle errors (e.g., display an error message)
+            // });
+
             window.location.href = '/auth/twitter/callback';
         }
     </script>
